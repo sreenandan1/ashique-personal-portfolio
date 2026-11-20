@@ -1,13 +1,13 @@
 // EDIT YOUR LINKS AND TEXT HERE
 export const book = "https://wa.me/971585544961?text=Hi%20Ashique%2C%20I%27d%20like%20to%20book%20a%20meeting."
 export const phone = "+971 58 554 4961"
-export const roles = ["Co-Founder & MD", "Technology Entrepreneur", "Product Builder", "Digital Transformation Leader"]
+export const roles = ["Co-Founder & MD", "India based Investment Team Executive", "Technology Entrepreneur", "Product Builder", "Digital Transformation Leader"]
 export const statement = "I am a UAE-based technology entrepreneur, Co-Founder & Managing Director of Ozfero Digital Solutions, building innovative digital products and empowering businesses through technology and strategic digital transformation."
 export const aboutText = "I am a Dubai-based entrepreneur and technology professional originally from Kerala, India. I focus on technology, business innovation, and building scalable digital solutions. My vision is to build globally recognised ventures, create meaningful opportunities, and contribute to the future of business and technology through innovation, leadership, and strategic growth."
 export const aboutExtra = "Alongside my entrepreneurial journey with Ozfero Digital Solutions, I maintain professional associations with organisations across events, business management and sports, including WE4V Events Dubai, Wavenpixel Dubai, and Kickform Sports Academy Dubai."
 
 export const stats = [
-  { value: "3+", label: "Businesses" },
+  { value: "1", label: "Businesses" },
   { value: "5+", label: "Products & Services" },
   { value: "UAE", label: "Headquarters" },
   { value: "Global", label: "Vision" }
@@ -19,6 +19,7 @@ export const logos = [
   { name: "Wavenpixel", src: "/assets/logo-wave.jpg" },
   { name: "Kick Form", src: "/assets/logo-kick.jpg" },
 ]
+
 
 export const ozfero = {
   name: "Ozfero Digital Solutions",

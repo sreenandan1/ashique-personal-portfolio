@@ -671,6 +671,11 @@ section {
     right: -20px;
 }
 
+.india-badge {
+    bottom: 36px;
+    right: -24px;
+}
+
 .bottom-badge {
     bottom: 24px;
     left: -20px;
@@ -722,6 +727,11 @@ section {
         right: 0;
     }
 
+    .india-badge {
+        bottom: 74px;
+        right: 0;
+    }
+
     .bottom-badge {
         bottom: 10px;
         left: 0;
@@ -732,22 +742,53 @@ section {
     }
 }
 
+@media(max-width: 520px) {
+    .float-badge {
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .float-badge strong {
+        font-size: 0.78rem;
+    }
+
+    .float-badge span {
+        font-size: 0.68rem;
+    }
+
+    .top-badge {
+        top: 8px;
+        right: -6px;
+    }
+
+    .india-badge {
+        bottom: 64px;
+        right: -6px;
+    }
+
+    .bottom-badge {
+        bottom: 8px;
+        left: -6px;
+    }
+}
+
 /* Marquee / Ventures Ticker */
 .marquee {
     overflow: hidden;
     border-block: 1px solid var(--line);
     padding: 26px 0;
-    background: rgba(11, 21, 17, 0.65);
-    backdrop-filter: blur(8px);
+    background: rgba(11, 21, 17, 0.7);
+    backdrop-filter: blur(10px);
     position: relative;
     z-index: 1;
 }
 
 .track {
     display: flex;
-    gap: 56px;
+    gap: 40px;
     width: max-content;
     animation: scroll 32s linear infinite;
+    align-items: center;
 }
 
 .marquee:hover .track {
@@ -755,25 +796,55 @@ section {
 }
 
 .mlogo {
-    background: #fff;
-    border-radius: 14px;
-    height: 68px;
-    min-width: 160px;
-    padding: 12px 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    height: 74px;
+    min-width: 175px;
+    padding: 10px 22px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     flex-shrink: 0;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 10px rgba(0, 255, 135, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.mlogo:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 20px rgba(0, 255, 135, 0.25);
 }
 
 .mlogo img {
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 52px;
+    max-width: 138px;
     width: auto;
     height: auto;
     object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Precise optical balance for each venture logo */
+.mlogo img[src*="ozfero"] {
+    max-height: 48px;
+    max-width: 140px;
+}
+
+.mlogo img[src*="kick"] {
+    max-height: 46px;
+    max-width: 135px;
+}
+
+.mlogo img[src*="wave"] {
+    max-height: 38px;
+    max-width: 142px;
+}
+
+.mlogo img[src*="weav"] {
+    max-height: 48px;
+    max-width: 135px;
 }
 
 @keyframes scroll {
@@ -814,7 +885,8 @@ section {
 
 .facts {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 24px 40px;
     margin: 26px 0 0;
     padding-top: 24px;
     border-top: 1px solid var(--line);

@@ -255,6 +255,8 @@ function HeroVisual() {
 
   const badgeTopX = useTransform(smx, (v) => v * 1.35)
   const badgeTopY = useTransform(smy, (v) => v * 1.35)
+  const badgeIndiaX = useTransform(smx, (v) => v * 1.45)
+  const badgeIndiaY = useTransform(smy, (v) => v * 1.45)
   const badgeBotX = useTransform(smx, (v) => v * 1.6)
   const badgeBotY = useTransform(smy, (v) => v * 1.6)
 
@@ -348,6 +350,21 @@ function HeroVisual() {
       </motion.div>
 
       <motion.div
+        className="float-badge india-badge"
+        style={{ x: badgeIndiaX, y: badgeIndiaY }}
+        animate={{ y: [-5, 5, -5] }}
+        transition={{ repeat: Infinity, duration: 5.2, ease: "easeInOut", delay: 0.4 }}
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+      >
+        <span className="badge-icon-globe">🇮🇳</span>
+        <div>
+          <strong>India Based</strong>
+          <span>Investment Team Executive</span>
+        </div>
+      </motion.div>
+
+      <motion.div
         className="float-badge bottom-badge"
         style={{ x: badgeBotX, y: badgeBotY }}
         animate={{ y: [6, -6, 6] }}
@@ -390,7 +407,7 @@ function Hero() {
       <div className="wrap herogrid">
         <div>
           <div className="status-pill">
-            <span className="pulse-dot" /> Entrepreneur • Co-Founder • Full Stack Leader
+            <span className="pulse-dot" /> Tech Entrepreneur • Co-Founder • India based Investment Team Executive
           </div>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
             Ashique P K
@@ -455,6 +472,7 @@ function About() {
             <dl className="facts">
               <div><dt>Based in</dt><dd>Dubai, UAE</dd></div>
               <div><dt>Originally from</dt><dd>Kerala, India</dd></div>
+              <div><dt>Executive Role</dt><dd>India based Investment Team Executive</dd></div>
             </dl>
           </Reveal>
         </div>
