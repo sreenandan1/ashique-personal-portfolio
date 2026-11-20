@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useSpring, useTransform, useMotionValue, useReducedMotion } from 'framer-motion'
-import { book, phone, roles, statement, aboutText, aboutExtra, logos, ozfero, companies, products, moments, stats } from './data.js'
+import { book, phone, roles, statement, aboutText, aboutExtra, logos, ozfero, associations, products, moments, stats } from './data.js'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -41,48 +41,83 @@ function ParticleField() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2)
     const mouse = { x: -999, y: -999 }
     let w = 0, h = 0, raf = 0, pts = []
+
     const init = () => {
-      const r = c.parentElement.getBoundingClientRect()
-      w = r.width; h = r.height
-      c.width = w * dpr; c.height = h * dpr
-      c.style.width = w + 'px'; c.style.height = h + 'px'
+      w = window.innerWidth
+      h = window.innerHeight
+      c.width = w * dpr
+      c.height = h * dpr
+      c.style.width = w + 'px'
+      c.style.height = h + 'px'
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      const n = Math.min(110, Math.floor((w * h) / 14000))
-      pts = Array.from({ length: n }, () => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35 }))
+      const n = Math.min(140, Math.floor((w * h) / 11000))
+      pts = Array.from({ length: n }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4
+      }))
     }
+
     const draw = () => {
       ctx.clearRect(0, 0, w, h)
       for (let i = 0; i < pts.length; i++) {
         const p = pts[i]
         if (!reduce) {
-          p.x += p.vx; p.y += p.vy
+          p.x += p.vx
+          p.y += p.vy
           if (p.x < 0 || p.x > w) p.vx *= -1
           if (p.y < 0 || p.y > h) p.vy *= -1
           const dx = p.x - mouse.x, dy = p.y - mouse.y, d = Math.hypot(dx, dy) || 1
-          if (d < 140) { p.x += (dx / d) * 1.4; p.y += (dy / d) * 1.4 }
-        }
-        ctx.fillStyle = 'rgba(0, 255, 135, 0.8)'
-        ctx.beginPath(); ctx.arc(p.x, p.y, 1.6, 0, 6.283); ctx.fill()
-        for (let j = i + 1; j < pts.length; j++) {
-          const q = pts[j], d = Math.hypot(p.x - q.x, p.y - q.y)
-          if (d < 120) {
-            ctx.strokeStyle = `rgba(5, 223, 114, ${(1 - d / 120) * 0.4})`
-            ctx.lineWidth = 1
-            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke()
+          if (d < 150) {
+            p.x += (dx / d) * 1.5
+            p.y += (dy / d) * 1.5
           }
         }
+        ctx.fillStyle = 'rgba(0, 255, 135, 0.75)'
+        ctx.beginPath()
+        ctx.arc(p.x, p.y, 1.6, 0, 6.283)
+        ctx.fill()
+
+        for (let j = i + 1; j < pts.length; j++) {
+          const q = pts[j], d = Math.hypot(p.x - q.x, p.y - q.y)
+          if (d < 125) {
+            ctx.strokeStyle = `rgba(5, 223, 114, ${(1 - d / 125) * 0.38})`
+            ctx.lineWidth = 1
+            ctx.beginPath()
+            ctx.moveTo(p.x, p.y)
+            ctx.lineTo(q.x, q.y)
+            ctx.stroke()
+          }
+        }
+
         const md = Math.hypot(p.x - mouse.x, p.y - mouse.y)
-        if (md < 160) {
-          ctx.strokeStyle = `rgba(0, 255, 135, ${(1 - md / 160) * 0.6})`
-          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke()
+        if (md < 170) {
+          ctx.strokeStyle = `rgba(0, 255, 135, ${(1 - md / 170) * 0.65})`
+          ctx.beginPath()
+          ctx.moveTo(p.x, p.y)
+          ctx.lineTo(mouse.x, mouse.y)
+          ctx.stroke()
         }
       }
       if (!reduce) raf = requestAnimationFrame(draw)
     }
-    const move = (e) => { const r = c.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top }
-    const leave = () => { mouse.x = mouse.y = -999 }
-    const onResize = () => { init(); if (reduce) draw() }
-    init(); draw()
+
+    const move = (e) => {
+      mouse.x = e.clientX
+      mouse.y = e.clientY
+    }
+    const leave = () => {
+      mouse.x = -999
+      mouse.y = -999
+    }
+    const onResize = () => {
+      init()
+      if (reduce) draw()
+    }
+
+    init()
+    draw()
     window.addEventListener('resize', onResize)
     window.addEventListener('pointermove', move)
     document.addEventListener('mouseleave', leave)
@@ -93,6 +128,7 @@ function ParticleField() {
       document.removeEventListener('mouseleave', leave)
     }
   }, [])
+
   return <canvas ref={ref} className="field" aria-hidden="true" />
 }
 
@@ -289,7 +325,7 @@ function HeroVisual() {
         <div className="portrait-hologram-shimmer" />
         <img
           src="/assets/hero-new.jpg"
-          alt="Ashique P K - Founder & Managing Director"
+          alt="Ashique P K - Co-Founder & Managing Director"
           className="portrait-photo"
         />
         <div className="portrait-fade-overlay" />
@@ -306,7 +342,7 @@ function HeroVisual() {
       >
         <div className="badge-pulse-dot" />
         <div>
-          <strong>Founder &amp; MD</strong>
+          <strong>Co-Founder &amp; MD</strong>
           <span>Ozfero Digital Solutions</span>
         </div>
       </motion.div>
@@ -351,18 +387,16 @@ function Nav() {
 function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="aurora" aria-hidden="true" />
-      <ParticleField />
       <div className="wrap herogrid">
         <div>
           <div className="status-pill">
-            <span className="pulse-dot" /> Entrepreneur • Founder • Full Stack Leader
+            <span className="pulse-dot" /> Entrepreneur • Co-Founder • Full Stack Leader
           </div>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease }}>
             Ashique P K
           </motion.h1>
           <motion.p className="role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }}>
-            Founder &amp; Managing Director | Technology &amp; Digital Solutions
+            Co-Founder &amp; Managing Director | Technology &amp; Digital Solutions
           </motion.p>
           <motion.p className="typeline" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
             2K Global Entrepreneur: <Typing words={roles} />
@@ -437,18 +471,18 @@ function Companies() {
   return (
     <section id="companies">
       <div className="wrap">
-        <Reveal as="h2">Companies &amp; Services</Reveal>
+        <Reveal as="h2">Companies &amp; Ventures</Reveal>
         <Reveal>
           <p className="muted lead">
-            Primary technology company founded and led by Ashique P K, alongside strategic executive partnerships.
+            Entrepreneurial ventures and professional associations across technology, events, and sports.
           </p>
         </Reveal>
 
-        {/* 1. Primary Venture (Own Flagship Company) */}
+        {/* 1. OZFERO DIGITAL SOLUTIONS (OWN VENTURE) */}
         <div className="tier-container primary-tier">
           <div className="tier-header-bar">
-            <span className="badge-tier own">★ Primary Venture • Own Company</span>
-            <span className="tier-subtitle">Founder &amp; Managing Director</span>
+            <span className="badge-tier own">★ Own Business Venture</span>
+            <span className="tier-subtitle">Ownership &amp; Leadership Defined by Official Records</span>
           </div>
 
           <Reveal>
@@ -458,12 +492,34 @@ function Companies() {
                   <img src={ozfero.logo} alt="Ozfero Digital Solutions logo" />
                 </div>
                 <div className="meta-badge-row">
-                  <span className="badge-highlight">Flagship Tech Enterprise</span>
+                  <span className="badge-highlight">Flagship Technology Venture</span>
                   <p className="place">{ozfero.place}</p>
                 </div>
                 <h3>{ozfero.name}</h3>
-                <p className="muted">{ozfero.text}</p>
+                <p className="venture-lead-text">{ozfero.tagline}</p>
+
+                {/* Leadership Section */}
+                <div className="leadership-section">
+                  <h4 className="leadership-title">Leadership</h4>
+                  <div className="leadership-grid">
+                    {ozfero.leadership.map((l) => (
+                      <div className="leader-pill" key={l.name}>
+                        <span className="leader-icon">{l.icon}</span>
+                        <div>
+                          <strong>{l.name}</strong>
+                          <span>{l.role}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="official-records-notice">
+                    <span className="notice-icon">🛡️</span>
+                    <p>{ozfero.officialNote}</p>
+                  </div>
+                </div>
               </div>
+
               <div>
                 <h3>Services &amp; Capabilities</h3>
                 <Services list={ozfero.services} />
@@ -475,31 +531,38 @@ function Companies() {
           </Reveal>
         </div>
 
-        {/* 2. Associated Ventures & Strategic Roles */}
+        {/* 2. PROFESSIONAL ASSOCIATIONS */}
         <div className="tier-container associated-tier">
           <div className="tier-header-alt">
-            <Reveal as="h3">Associated Ventures &amp; Executive Leadership</Reveal>
+            <div className="associations-header-badge">
+              <span className="badge-highlight-alt">Executive Roles &amp; Collaborations</span>
+            </div>
+            <Reveal as="h3">PROFESSIONAL ASSOCIATIONS</Reveal>
             <Reveal>
-              <p className="muted">
-                Ventures and organisations where Ashique P K serves in an executive leadership, strategic advisory, or partnership capacity.
+              <p className="associations-intro-text">
+                Alongside my entrepreneurial journey with Ozfero Digital Solutions, I maintain professional associations with organisations across events, business management and sports.
               </p>
             </Reveal>
           </div>
 
-          <div className="cards">
-            {companies.map((c, i) => (
-              <Reveal key={c.name} delay={i * 0.08}>
-                <Tilt>
-                  <div className="partner-header-tag">
-                    <span className="partner-badge">{c.badge}</span>
+          <div className="associations-grid">
+            {associations.map((a, i) => (
+              <Reveal key={a.name} delay={i * 0.1}>
+                <Tilt className="association-card">
+                  <div className="assoc-top-row">
+                    <span className="assoc-num">{a.num}</span>
+                    <span className="partner-badge">{a.badge}</span>
                   </div>
+
                   <div className="logo small">
-                    {c.logo ? <img src={c.logo} alt={c.name + ' logo'} /> : <span className="mono">India</span>}
+                    <img src={a.logo} alt={a.name + ' logo'} />
                   </div>
-                  <p className="place">{c.place}</p>
-                  <h3>{c.name}</h3>
-                  <p className="muted">{c.text}</p>
-                  <Services list={c.services} />
+
+                  <p className="place">{a.place}</p>
+                  <h3>{a.name}</h3>
+                  <div className="assoc-role-tag">{a.role}</div>
+                  <p className="muted assoc-desc">{a.text}</p>
+                  <Services list={a.services} />
                 </Tilt>
               </Reveal>
             ))}
@@ -566,6 +629,13 @@ export default function App() {
   return (
     <>
       <Progress /><CursorGlow /><Nav />
+      {/* Global Animated Cyber Background spanning across all sections */}
+      <div className="global-bg" aria-hidden="true">
+        <div className="aurora" />
+        <div className="cyber-grid" />
+        <ParticleField />
+      </div>
+
       <main>
         <Hero />
         <div className="section-blur" aria-hidden="true" />
@@ -581,7 +651,7 @@ export default function App() {
         <div className="section-blur" aria-hidden="true" />
         <Contact />
       </main>
-      <footer>© 2026 Ashique P K. Founder, Ozfero Digital Solutions, Dubai, UAE.</footer>
+      <footer>© 2026 Ashique P K. Co-Founder, Ozfero Digital Solutions, Dubai, UAE.</footer>
     </>
   )
 }
