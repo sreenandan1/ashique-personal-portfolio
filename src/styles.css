@@ -354,10 +354,21 @@ section {
     font-size: clamp(3.4rem, 9.5vw, 6.8rem);
     font-weight: 800;
     letter-spacing: -.045em;
-    background: linear-gradient(105deg, #ffffff 30%, #D4FBE5 70%, #00FF87);
+    background: linear-gradient(110deg, #ffffff 15%, #A7F3D0 35%, #00FF87 50%, #A7F3D0 65%, #ffffff 85%);
+    background-size: 250% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: textShimmer 7s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+    0%, 15% {
+        background-position: 150% center;
+    }
+    65%, 100% {
+        background-position: -50% center;
+    }
 }
 
 .role {
@@ -426,17 +437,25 @@ section {
 }
 
 .stat-item strong {
-    font-size: 1.55rem;
+    font-size: 1.65rem;
     font-family: var(--display);
     color: var(--green);
     font-weight: 800;
     line-height: 1.1;
+    display: inline-flex;
+    align-items: baseline;
+    text-shadow: 0 0 16px rgba(0, 255, 135, 0.4);
+}
+
+.counter-num,
+.counter-text {
+    display: inline-block;
 }
 
 .stat-item span {
     font-size: 0.8rem;
     color: var(--muted);
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
 /* New Hero Visual with Portrait & Neon Glow Arc */
@@ -445,6 +464,7 @@ section {
     width: 100%;
     max-width: 480px;
     margin-inline: auto;
+    perspective: 1000px;
 }
 
 .neon-arc-container {
@@ -452,20 +472,78 @@ section {
     inset: -14% -14% -10% -14%;
     pointer-events: none;
     z-index: 0;
+    will-change: transform;
 }
 
 .neon-arc-svg {
     width: 100%;
     height: 100%;
-    animation: pulseArc 6s ease-in-out infinite alternate;
+    overflow: visible;
 }
 
-@keyframes pulseArc {
+/* Moving Laser Pulse Ring */
+.laser-beam-ring {
+    stroke-dasharray: 240 180 80 120;
+    animation: laserFlow 11s linear infinite;
+    transform-origin: 270px 230px;
+    filter: drop-shadow(0 0 8px #00FF87);
+}
+
+@keyframes laserFlow {
+    from {
+        stroke-dashoffset: 0;
+        transform: rotate(0deg);
+    }
+    to {
+        stroke-dashoffset: -1240;
+        transform: rotate(360deg);
+    }
+}
+
+/* Counter-Rotating Orbit Ring */
+.orbit-dashed-ring {
+    stroke-dasharray: 10 16;
+    animation: orbitRotateRev 24s linear infinite;
+    transform-origin: 270px 230px;
+}
+
+@keyframes orbitRotateRev {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+/* Orbiting Satellite Particle Spark */
+.satellite-orbit {
+    transform-origin: 270px 230px;
+    animation: satelliteSpin 12s linear infinite;
+}
+
+@keyframes satelliteSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.satellite-spark {
+    animation: sparkPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes sparkPulse {
     0% {
-        transform: rotate(0deg) scale(1);
+        r: 3.5;
+        opacity: 0.7;
     }
     100% {
-        transform: rotate(5deg) scale(1.03);
+        r: 5.5;
+        opacity: 1;
+        filter: drop-shadow(0 0 10px #00FF87);
     }
 }
 
@@ -487,9 +565,31 @@ section {
     aspect-ratio: 3.5/4.3;
     border-radius: 28px;
     overflow: hidden;
-    border: 1px solid rgba(0, 255, 135, 0.3);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75), 0 0 35px rgba(0, 255, 135, 0.15);
+    border: 1px solid rgba(0, 255, 135, 0.35);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75), 0 0 40px rgba(0, 255, 135, 0.2);
     background: var(--surface-card);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.portrait-hologram-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 255, 135, 0.16) 0%, transparent 45%, rgba(5, 223, 114, 0.12) 100%);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: screen;
+    animation: shimmerBreath 5s ease-in-out infinite alternate;
+}
+
+@keyframes shimmerBreath {
+    0% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0.65;
+    }
 }
 
 .portrait-photo {
@@ -497,6 +597,11 @@ section {
     height: 100%;
     object-fit: cover;
     object-position: 50% 12%;
+    transition: transform 0.6s ease;
+}
+
+.portrait-frame:hover .portrait-photo {
+    transform: scale(1.03);
 }
 
 .portrait-fade-overlay {
@@ -504,6 +609,7 @@ section {
     inset: 0;
     pointer-events: none;
     background: linear-gradient(180deg, transparent 65%, rgba(6, 11, 8, 0.85) 100%);
+    z-index: 3;
 }
 
 /* Floating Info Badges around Portrait */
