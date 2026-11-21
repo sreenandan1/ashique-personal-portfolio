@@ -828,7 +828,7 @@ section {
 
 /* Precise optical balance for each venture logo */
 .mlogo img[src*="ozfero"] {
-    max-height: 48px;
+    max-height: 58px;
     max-width: 140px;
 }
 
@@ -1026,7 +1026,7 @@ section {
 }
 
 .logo.feature-logo img {
-    max-height: 125px !important;
+    max-height: 140px !important;
     max-width: 90% !important;
     width: auto !important;
     height: auto !important;
