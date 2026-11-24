@@ -1838,6 +1838,19 @@ footer {
     }
 }
 
+/* Hide Netlify Injected Drawer / Badges */
+#netlify-drawer,
+[data-netlify-drawer],
+iframe[id*="netlify"],
+iframe[src*="netlify"],
+div[id*="netlify-drawer"],
+.netlify-badge {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
