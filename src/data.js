@@ -3,8 +3,19 @@ export const book = "https://wa.me/971585544961?text=Hi%20Ashique%2C%20I%27d%20l
 export const phone = "+971 58 554 4961"
 export const roles = ["Co-Founder & MD", "India based Investment Team Executive", "Technology Entrepreneur", "Product Builder", "Digital Transformation Leader"]
 export const statement = "I am a UAE-based technology entrepreneur, Co-Founder & Managing Director of Ozfero Digital Solutions, building innovative digital products and empowering businesses through technology and strategic digital transformation."
-export const aboutText = "I am a Dubai-based entrepreneur and technology professional originally from Kerala, India. I focus on technology, business innovation, and building scalable digital solutions. My vision is to build globally recognised ventures, create meaningful opportunities, and contribute to the future of business and technology through innovation, leadership, and strategic growth."
-export const aboutExtra = "Alongside my entrepreneurial journey with Ozfero Digital Solutions, I maintain professional associations with organisations across events, business management and sports, including WE4V Events Dubai, Wavenpixel Dubai, and Kickform Sports Academy Dubai."
+export const aboutText = "I am Ashique P K, a UAE-based entrepreneur, technology professional and business leader with a vision to build meaningful businesses and create opportunities across industries. I represent the identity of a 2K Global Entrepreneur, one shaped by innovation, strategic thinking, leadership and a forward-looking global business perspective."
+export const aboutP2 = "As the Co-Founder and Managing Director of Ozfero Digital Solutions, I focus on digital innovation, technology-driven solutions, business development and long-term growth."
+export const aboutP3 = "Beyond technology, I am associated with WE4V Events Dubai, Wave N Pixel Events Dubai and Kick Form Sports Academy Dubai, which expands my professional network across the events, creative and sports industries."
+export const aboutQuote = "I believe in thinking beyond boundaries, turning ideas into opportunities and building businesses with a global perspective."
+export const aboutExtra = `${aboutP2} ${aboutP3}`
+
+export const associatedPartners = [
+  { name: "Abdul Rasheed", role: "Associated Partner", icon: "🤝" },
+  { name: "Muhammed Noufal", role: "Associated Partner", icon: "🤝" },
+  { name: "Najad Abdul Salam", role: "Associated Partner", icon: "🤝" },
+  { name: "Omar Salih", role: "Associated Partner", icon: "🤝" },
+  { name: "Saidalavi", role: "Associated Partner", icon: "🤝" }
+]
 
 export const stats = [
   { value: "1", label: "Businesses" },

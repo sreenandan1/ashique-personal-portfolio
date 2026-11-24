@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useSpring, useTransform, useMotionValue, useReducedMotion } from 'framer-motion'
-import { book, phone, roles, statement, aboutText, aboutExtra, logos, ozfero, associations, products, moments, stats } from './data.js'
+import { book, phone, roles, statement, aboutText, aboutP2, aboutP3, aboutQuote, aboutExtra, logos, ozfero, associations, associatedPartners, products, moments, stats } from './data.js'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -467,7 +467,15 @@ function About() {
         <div>
           <Reveal as="h2">About</Reveal>
           <ScrollText text={aboutText} />
-          <Reveal><p className="muted">{aboutExtra}</p></Reveal>
+          <Reveal>
+            <div className="about-extended-text">
+              <p className="about-para">{aboutP2}</p>
+              <p className="about-para muted">{aboutP3}</p>
+              <blockquote className="about-quote">
+                <span>“</span>{aboutQuote}<span>”</span>
+              </blockquote>
+            </div>
+          </Reveal>
           <Reveal>
             <dl className="facts">
               <div><dt>Based in</dt><dd>Dubai, UAE</dd></div>
@@ -584,6 +592,33 @@ function Companies() {
                 </Tilt>
               </Reveal>
             ))}
+          </div>
+
+          {/* 3. ASSOCIATED PARTNERS & COLLABORATIVE NETWORK */}
+          <div className="partners-wrapper">
+            <div className="partners-header">
+              <span className="badge-highlight-alt">Partnership Network</span>
+              <Reveal as="h4">Associated Partners &amp; Key Collaborators</Reveal>
+              <Reveal>
+                <p className="partners-intro-text">
+                  Key partners and associates collaborating across business ventures, events, and strategic initiatives.
+                </p>
+              </Reveal>
+            </div>
+
+            <div className="partners-grid">
+              {associatedPartners.map((p, idx) => (
+                <Reveal key={p.name} delay={idx * 0.08}>
+                  <div className="partner-pill">
+                    <span className="partner-icon">{p.icon || '🤝'}</span>
+                    <div className="partner-details">
+                      <strong>{p.name}</strong>
+                      <span>{p.role}</span>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </div>
