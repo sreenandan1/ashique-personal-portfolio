@@ -74,7 +74,7 @@ function ParticleField() {
             p.y += (dy / d) * 1.5
           }
         }
-        ctx.fillStyle = 'rgba(0, 255, 135, 0.75)'
+        ctx.fillStyle = 'rgba(21, 163, 72, 0.85)'
         ctx.beginPath()
         ctx.arc(p.x, p.y, 1.6, 0, 6.283)
         ctx.fill()
@@ -82,7 +82,7 @@ function ParticleField() {
         for (let j = i + 1; j < pts.length; j++) {
           const q = pts[j], d = Math.hypot(p.x - q.x, p.y - q.y)
           if (d < 125) {
-            ctx.strokeStyle = `rgba(5, 223, 114, ${(1 - d / 125) * 0.38})`
+            ctx.strokeStyle = `rgba(34, 197, 94, ${(1 - d / 125) * 0.4})`
             ctx.lineWidth = 1
             ctx.beginPath()
             ctx.moveTo(p.x, p.y)
@@ -93,7 +93,7 @@ function ParticleField() {
 
         const md = Math.hypot(p.x - mouse.x, p.y - mouse.y)
         if (md < 170) {
-          ctx.strokeStyle = `rgba(0, 255, 135, ${(1 - md / 170) * 0.65})`
+          ctx.strokeStyle = `rgba(21, 163, 72, ${(1 - md / 170) * 0.7})`
           ctx.beginPath()
           ctx.moveTo(p.x, p.y)
           ctx.lineTo(mouse.x, mouse.y)
@@ -280,14 +280,14 @@ function HeroVisual() {
         <svg viewBox="0 0 500 500" className="neon-arc-svg">
           <defs>
             <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00FF87" stopOpacity="0.95" />
-              <stop offset="45%" stopColor="#05DF72" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="#061A12" stopOpacity="0" />
+              <stop offset="0%" stopColor="#15A348" stopOpacity="0.95" />
+              <stop offset="45%" stopColor="#22C55E" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#07150E" stopOpacity="0" />
             </linearGradient>
             <linearGradient id="laserGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#00FF87" stopOpacity="1" />
-              <stop offset="50%" stopColor="#A7F3D0" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#05DF72" stopOpacity="0" />
+              <stop offset="0%" stopColor="#15A348" stopOpacity="1" />
+              <stop offset="50%" stopColor="#86EFAC" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="#22C55E" stopOpacity="0" />
             </linearGradient>
             <filter id="neonBlur" x="-30%" y="-30%" width="160%" height="160%">
               <feGaussianBlur stdDeviation="18" result="blur" />
@@ -306,12 +306,12 @@ function HeroVisual() {
           <circle cx="270" cy="230" r="200" fill="none" stroke="url(#laserGrad)" strokeWidth="3" className="laser-beam-ring" />
 
           {/* Counter-Rotating Dashed Orbit Ring */}
-          <circle cx="270" cy="230" r="224" fill="none" stroke="rgba(0,255,135,0.38)" strokeWidth="1.5" className="orbit-dashed-ring" />
+          <circle cx="270" cy="230" r="224" fill="none" stroke="rgba(21, 163, 72, 0.4)" strokeWidth="1.5" className="orbit-dashed-ring" />
 
           {/* Satellite Orbit with Glowing Particle */}
           <g className="satellite-orbit">
-            <circle cx="270" cy="230" r="180" fill="none" stroke="rgba(5,223,114,0.18)" strokeWidth="1" />
-            <circle cx="450" cy="230" r="4.5" fill="#00FF87" filter="url(#sparkGlow)" className="satellite-spark" />
+            <circle cx="270" cy="230" r="180" fill="none" stroke="rgba(34, 197, 94, 0.25)" strokeWidth="1" />
+            <circle cx="450" cy="230" r="4.5" fill="#15A348" filter="url(#sparkGlow)" className="satellite-spark" />
           </g>
         </svg>
         <div className="neon-radial-ambient" />
@@ -643,6 +643,51 @@ function Contact() {
   )
 }
 
+function MobileTabBar() {
+  const [activeTab, setActiveTab] = useState('top')
+
+  useEffect(() => {
+    const sections = ['top', 'about', 'companies', 'products', 'contact']
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 220
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i])
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveTab(sections[i])
+          break
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <nav className="mobile-tab-bar" aria-label="Mobile Navigation">
+      <a href="#top" className={`tab-item ${activeTab === 'top' ? 'active' : ''}`}>
+        <svg className="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Home</span>
+      </a>
+      <a href="#about" className={`tab-item ${activeTab === 'about' ? 'active' : ''}`}>
+        <svg className="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>About</span>
+      </a>
+      <a href="#companies" className={`tab-item ${activeTab === 'companies' ? 'active' : ''}`}>
+        <svg className="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <span>Ventures</span>
+      </a>
+      <a href="#products" className={`tab-item ${activeTab === 'products' ? 'active' : ''}`}>
+        <svg className="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        <span>Apps</span>
+      </a>
+      <a href={book} target="_blank" rel="noopener noreferrer" className="tab-item tab-book">
+        <svg className="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>Book</span>
+      </a>
+    </nav>
+  )
+}
+
 export default function App() {
   return (
     <>
@@ -670,6 +715,7 @@ export default function App() {
         <Contact />
       </main>
       <footer>© 2026 Ashique P K. Co-Founder, Ozfero Digital Solutions, Dubai, UAE.</footer>
+      <MobileTabBar />
     </>
   )
 }

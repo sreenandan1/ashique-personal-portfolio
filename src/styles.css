@@ -1,18 +1,18 @@
 :root {
-    --bg: #060B08;
-    --surface: #0B1511;
-    --surface-card: #0E1C16;
-    --surface-glass: rgba(12, 22, 18, 0.75);
-    --line: rgba(0, 255, 135, 0.15);
-    --line-bright: rgba(0, 255, 135, 0.4);
+    --bg: #07150E;
+    --surface: #0C2016;
+    --surface-card: #10281C;
+    --surface-glass: rgba(12, 32, 22, 0.8);
+    --line: rgba(21, 163, 72, 0.18);
+    --line-bright: rgba(21, 163, 72, 0.45);
     --ink: #F0FDF4;
     --muted: #84A494;
-    --green: #00FF87;
-    --green-emerald: #05DF72;
-    --green-glow: rgba(0, 255, 135, 0.32);
-    --green-dark: #07261A;
-    --lime: #00FF87;
-    --gold: #00FF87;
+    --green: rgb(21, 163, 72);
+    --green-emerald: #16a34a;
+    --green-glow: rgba(21, 163, 72, 0.35);
+    --green-dark: #0A1C13;
+    --lime: rgb(21, 163, 72);
+    --gold: rgb(21, 163, 72);
     --display: 'Bricolage Grotesque', 'Trebuchet MS', system-ui, sans-serif;
     --body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
     color-scheme: dark;
@@ -107,8 +107,8 @@ section {
     inset: 0 0 auto;
     height: 3px;
     transform-origin: 0 50%;
-    background: linear-gradient(90deg, #05DF72, #00FF87, #45FF9E);
-    box-shadow: 0 0 12px rgba(0, 255, 135, 0.6);
+    background: linear-gradient(90deg, #15A348, #22C55E, #4ADE80);
+    box-shadow: 0 0 12px rgba(21, 163, 72, 0.6);
     z-index: 100;
 }
 
@@ -119,12 +119,12 @@ section {
     width: 520px;
     height: 520px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 255, 135, 0.18), transparent 65%);
+    background: radial-gradient(circle, rgba(21, 163, 72, 0.2), transparent 65%);
     pointer-events: none;
     z-index: 0;
 }
 
-/* Button Styling with Neon Emerald Glow */
+/* Button Styling with Rich Emerald Glow */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -141,26 +141,28 @@ section {
 
 .btn.primary {
     background: var(--green);
-    color: #03140C;
-    box-shadow: 0 0 22px rgba(0, 255, 135, 0.4);
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(21, 163, 72, 0.45);
     animation: pulseGlow 2.8s infinite;
 }
 
 .btn.primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 32px rgba(0, 255, 135, 0.65);
+    box-shadow: 0 0 30px rgba(21, 163, 72, 0.7);
+    background: #16a34a;
+    color: #ffffff;
 }
 
 .btn.ghost {
-    border-color: rgba(0, 255, 135, 0.3);
+    border-color: rgba(21, 163, 72, 0.35);
     color: var(--ink);
-    background: rgba(11, 21, 17, 0.65);
+    background: rgba(12, 32, 22, 0.75);
     backdrop-filter: blur(8px);
 }
 
 .btn.ghost:hover {
     border-color: var(--green);
-    background: rgba(0, 255, 135, 0.12);
+    background: rgba(21, 163, 72, 0.18);
     color: #fff;
     transform: translateY(-2px);
 }
@@ -172,13 +174,13 @@ section {
 
 @keyframes pulseGlow {
     0% {
-        box-shadow: 0 0 0 0 rgba(0, 255, 135, 0.5);
+        box-shadow: 0 0 0 0 rgba(21, 163, 72, 0.5);
     }
     70% {
-        box-shadow: 0 0 0 16px rgba(0, 255, 135, 0);
+        box-shadow: 0 0 0 16px rgba(21, 163, 72, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(0, 255, 135, 0);
+        box-shadow: 0 0 0 0 rgba(21, 163, 72, 0);
     }
 }
 
@@ -191,7 +193,7 @@ section {
     z-index: 5;
     margin-top: -35px;
     margin-bottom: -35px;
-    background: linear-gradient(180deg, transparent, rgba(6, 11, 8, 0.85) 50%, transparent);
+    background: linear-gradient(180deg, transparent, rgba(7, 21, 14, 0.88) 50%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     mask-image: linear-gradient(to bottom, transparent, black 35%, black 65%, transparent);
@@ -203,7 +205,7 @@ section {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(6, 11, 8, 0.78);
+    background: rgba(7, 21, 14, 0.82);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--line);
 }
@@ -283,8 +285,8 @@ section {
     position: absolute;
     inset: 0;
     background-image: 
-        linear-gradient(to right, rgba(0, 255, 135, 0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 255, 135, 0.035) 1px, transparent 1px);
+        linear-gradient(to right, rgba(21, 163, 72, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(21, 163, 72, 0.04) 1px, transparent 1px);
     background-size: 64px 64px;
     mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 80%);
@@ -325,14 +327,14 @@ section {
 }
 
 .aurora::before {
-    background: #00FF87;
+    background: rgb(21, 163, 72);
     top: -180px;
     left: -120px;
     animation: drift 20s ease-in-out infinite alternate;
 }
 
 .aurora::after {
-    background: #05DF72;
+    background: #16a34a;
     opacity: 0.22;
     bottom: -260px;
     right: -140px;
@@ -360,8 +362,8 @@ section {
     gap: 10px;
     padding: 7px 18px;
     border-radius: 999px;
-    background: rgba(0, 255, 135, 0.08);
-    border: 1px solid rgba(0, 255, 135, 0.25);
+    background: rgba(21, 163, 72, 0.1);
+    border: 1px solid rgba(21, 163, 72, 0.28);
     color: var(--green);
     font-size: 0.88rem;
     font-weight: 600;
@@ -392,7 +394,7 @@ section {
     font-size: clamp(3.4rem, 9.5vw, 6.8rem);
     font-weight: 800;
     letter-spacing: -.045em;
-    background: linear-gradient(110deg, #ffffff 15%, #A7F3D0 35%, #00FF87 50%, #A7F3D0 65%, #ffffff 85%);
+    background: linear-gradient(110deg, #ffffff 15%, #BBF7D0 35%, rgb(21, 163, 72) 50%, #BBF7D0 65%, #ffffff 85%);
     background-size: 250% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -482,7 +484,7 @@ section {
     line-height: 1.1;
     display: inline-flex;
     align-items: baseline;
-    text-shadow: 0 0 16px rgba(0, 255, 135, 0.4);
+    text-shadow: 0 0 16px rgba(21, 163, 72, 0.4);
 }
 
 .counter-num,
@@ -524,7 +526,7 @@ section {
     stroke-dasharray: 240 180 80 120;
     animation: laserFlow 11s linear infinite;
     transform-origin: 270px 230px;
-    filter: drop-shadow(0 0 8px #00FF87);
+    filter: drop-shadow(0 0 8px rgb(21, 163, 72));
 }
 
 @keyframes laserFlow {
@@ -581,7 +583,7 @@ section {
     100% {
         r: 5.5;
         opacity: 1;
-        filter: drop-shadow(0 0 10px #00FF87);
+        filter: drop-shadow(0 0 10px rgb(21, 163, 72));
     }
 }
 
@@ -592,7 +594,7 @@ section {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 255, 135, 0.28), transparent 70%);
+    background: radial-gradient(circle, rgba(21, 163, 72, 0.3), transparent 70%);
     filter: blur(40px);
 }
 
@@ -603,8 +605,8 @@ section {
     aspect-ratio: 3.5/4.3;
     border-radius: 28px;
     overflow: hidden;
-    border: 1px solid rgba(0, 255, 135, 0.35);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75), 0 0 40px rgba(0, 255, 135, 0.2);
+    border: 1px solid rgba(21, 163, 72, 0.35);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75), 0 0 40px rgba(21, 163, 72, 0.22);
     background: var(--surface-card);
     transform-style: preserve-3d;
     will-change: transform;
@@ -613,7 +615,7 @@ section {
 .portrait-hologram-shimmer {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(0, 255, 135, 0.16) 0%, transparent 45%, rgba(5, 223, 114, 0.12) 100%);
+    background: linear-gradient(135deg, rgba(21, 163, 72, 0.16) 0%, transparent 45%, rgba(22, 163, 74, 0.12) 100%);
     opacity: 0.5;
     pointer-events: none;
     z-index: 2;
@@ -646,7 +648,7 @@ section {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(180deg, transparent 65%, rgba(6, 11, 8, 0.85) 100%);
+    background: linear-gradient(180deg, transparent 65%, rgba(7, 21, 14, 0.88) 100%);
     z-index: 3;
 }
 
@@ -659,11 +661,11 @@ section {
     gap: 12px;
     padding: 12px 18px;
     border-radius: 16px;
-    background: rgba(8, 17, 13, 0.85);
+    background: rgba(9, 25, 17, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(0, 255, 135, 0.28);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 135, 0.12);
+    border: 1px solid rgba(21, 163, 72, 0.28);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6), 0 0 20px rgba(21, 163, 72, 0.14);
 }
 
 .top-badge {
@@ -806,14 +808,14 @@ section {
     justify-content: center;
     overflow: hidden;
     flex-shrink: 0;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 10px rgba(0, 255, 135, 0.08);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 10px rgba(21, 163, 72, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.9);
     transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
 }
 
 .mlogo:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 20px rgba(0, 255, 135, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 20px rgba(21, 163, 72, 0.25);
 }
 
 .mlogo img {
@@ -928,14 +930,14 @@ section {
     gap: 8px;
     padding: 8px 18px;
     border-radius: 999px;
-    background: rgba(0, 255, 135, 0.12);
+    background: rgba(21, 163, 72, 0.12);
     border: 1.5px solid var(--green);
     color: var(--green);
     font-size: 0.88rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    box-shadow: 0 0 20px rgba(0, 255, 135, 0.22);
+    box-shadow: 0 0 20px rgba(21, 163, 72, 0.22);
 }
 
 .tier-subtitle {
@@ -969,10 +971,10 @@ section {
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: var(--green);
-    background: rgba(0, 255, 135, 0.08);
+    background: rgba(21, 163, 72, 0.08);
     padding: 4px 12px;
     border-radius: 999px;
-    border: 1px solid rgba(0, 255, 135, 0.2);
+    border: 1px solid rgba(21, 163, 72, 0.2);
 }
 
 /* Cards & Tilt Container */
@@ -991,7 +993,7 @@ section {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(0, 255, 135, 0.16), transparent 45%);
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(21, 163, 72, 0.16), transparent 45%);
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events: none;
@@ -1002,13 +1004,13 @@ section {
 }
 
 .tilt:hover {
-    border-color: rgba(0, 255, 135, 0.45);
+    border-color: rgba(21, 163, 72, 0.45);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
 .primary-feature {
-    border: 1.5px solid rgba(0, 255, 135, 0.32);
-    background: radial-gradient(ellipse at 20% 0%, rgba(0, 255, 135, 0.08), transparent 60%), var(--surface);
+    border: 1.5px solid rgba(21, 163, 72, 0.32);
+    background: radial-gradient(ellipse at 20% 0%, rgba(21, 163, 72, 0.08), transparent 60%), var(--surface);
 }
 
 /* Bigger Ozfero Logo Box (As Requested by User) */
@@ -1049,10 +1051,10 @@ section {
     letter-spacing: 0.05em;
     font-weight: 700;
     color: var(--green);
-    background: rgba(0, 255, 135, 0.1);
+    background: rgba(21, 163, 72, 0.1);
     padding: 4px 10px;
     border-radius: 6px;
-    border: 1px solid rgba(0, 255, 135, 0.2);
+    border: 1px solid rgba(21, 163, 72, 0.25);
 }
 
 /* Small Logo Cards */
@@ -1109,8 +1111,8 @@ section {
 
 /* Leadership & Ownership Box */
 .leadership-section {
-    background: rgba(8, 20, 15, 0.75);
-    border: 1px solid rgba(0, 255, 135, 0.22);
+    background: rgba(9, 25, 17, 0.82);
+    border: 1px solid rgba(21, 163, 72, 0.22);
     border-radius: 18px;
     padding: 18px 20px;
     margin-top: 20px;
@@ -1137,14 +1139,14 @@ section {
     align-items: center;
     gap: 12px;
     padding: 10px 14px;
-    background: rgba(12, 26, 20, 0.85);
-    border: 1px solid rgba(0, 255, 135, 0.18);
+    background: rgba(13, 33, 23, 0.9);
+    border: 1px solid rgba(21, 163, 72, 0.2);
     border-radius: 12px;
     transition: border-color 0.25s, transform 0.25s;
 }
 
 .leader-pill:hover {
-    border-color: rgba(0, 255, 135, 0.45);
+    border-color: rgba(21, 163, 72, 0.5);
     transform: translateY(-2px);
 }
 
@@ -1172,7 +1174,7 @@ section {
     gap: 10px;
     margin-top: 14px;
     padding: 10px 14px;
-    background: rgba(0, 255, 135, 0.06);
+    background: rgba(21, 163, 72, 0.08);
     border-left: 3px solid var(--green);
     border-radius: 8px;
 }
@@ -1201,10 +1203,10 @@ section {
     letter-spacing: 0.05em;
     font-weight: 700;
     color: var(--green);
-    background: rgba(0, 255, 135, 0.1);
+    background: rgba(21, 163, 72, 0.1);
     padding: 4px 12px;
     border-radius: 999px;
-    border: 1px solid rgba(0, 255, 135, 0.22);
+    border: 1px solid rgba(21, 163, 72, 0.25);
 }
 
 .associations-intro-text {
@@ -1245,7 +1247,7 @@ section {
     color: var(--green);
     line-height: 1;
     letter-spacing: -.03em;
-    text-shadow: 0 0 12px rgba(0, 255, 135, 0.35);
+    text-shadow: 0 0 12px rgba(21, 163, 72, 0.35);
 }
 
 .assoc-role-tag {
@@ -1253,8 +1255,8 @@ section {
     font-size: 0.8rem;
     font-weight: 600;
     color: #fff;
-    background: rgba(0, 255, 135, 0.1);
-    border: 1px solid rgba(0, 255, 135, 0.24);
+    background: rgba(21, 163, 72, 0.12);
+    border: 1px solid rgba(21, 163, 72, 0.26);
     border-radius: 8px;
     padding: 4px 10px;
     margin: 6px 0 14px;
@@ -1317,14 +1319,14 @@ section {
     height: 9px;
     border-radius: 50%;
     background: var(--green);
-    box-shadow: 0 0 10px rgba(0, 255, 135, 0.7);
+    box-shadow: 0 0 10px rgba(21, 163, 72, 0.7);
 }
 
 .flag {
     margin-top: 24px;
     padding: 16px 18px;
     border-radius: 16px;
-    background: rgba(0, 255, 135, 0.08);
+    background: rgba(21, 163, 72, 0.08);
     border-left: 5px solid var(--green);
 }
 
@@ -1359,7 +1361,7 @@ section {
     border-radius: 20px;
     object-fit: cover;
     margin-bottom: 18px;
-    box-shadow: 0 0 30px rgba(0, 255, 135, 0.35);
+    box-shadow: 0 0 30px rgba(21, 163, 72, 0.35);
 }
 
 .shots {
@@ -1423,7 +1425,7 @@ section {
     padding: 70px 30px;
     border-radius: 36px;
     border: 1px solid var(--line);
-    background: radial-gradient(ellipse at 50% 0%, rgba(0, 255, 135, 0.22), transparent 65%), var(--surface);
+    background: radial-gradient(ellipse at 50% 0%, rgba(21, 163, 72, 0.22), transparent 65%), var(--surface);
 }
 
 .cta p {
@@ -1439,6 +1441,401 @@ footer {
     font-size: 0.95rem;
     position: relative;
     z-index: 1;
+}
+
+/* ==========================================================
+   NATIVE MOBILE APP EXPERIENCE (Only applies to Mobile <= 768px)
+   Web / Desktop view (> 768px) has ZERO changes.
+   ========================================================== */
+.mobile-tab-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Touch & Smooth Inertia Scrolling */
+    html, body {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    /* Reserve space at bottom so content is never covered by bottom dock */
+    main {
+        padding-bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+    }
+
+    footer {
+        padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* Compact App-Like Section Padding */
+    section {
+        padding: 44px 0;
+    }
+
+    .wrap {
+        width: min(100% - 24px, 1120px);
+    }
+
+    /* Mobile App Top Header */
+    .nav {
+        background: rgba(7, 21, 14, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(21, 163, 72, 0.18);
+    }
+
+    .navrow {
+        min-height: 54px;
+        padding: 0 4px;
+    }
+
+    .brand {
+        font-size: 1.15rem;
+    }
+
+    .nav .btn.small {
+        min-height: 34px;
+        padding: 0 14px;
+        font-size: 0.82rem;
+        border-radius: 999px;
+    }
+
+    /* Hero Section - Mobile App Presentation */
+    .hero {
+        min-height: auto;
+        padding: 16px 0 36px;
+    }
+
+    .herogrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .status-pill {
+        font-size: 0.78rem;
+        padding: 5px 14px;
+        margin-bottom: 14px;
+        line-height: 1.35;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.2rem, 9vw, 3.1rem);
+        line-height: 1.08;
+    }
+
+    .role {
+        font-size: 1.05rem;
+        margin: 12px 0 6px;
+    }
+
+    .typeline {
+        font-size: 0.95rem;
+        margin-bottom: 14px;
+    }
+
+    .statement {
+        font-size: 0.98rem;
+        line-height: 1.6;
+        margin-bottom: 22px;
+    }
+
+    /* Mobile Full-Width Action Buttons */
+    .ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        min-height: 48px;
+        border-radius: 14px;
+        font-size: 0.95rem;
+    }
+
+    .btn:active {
+        transform: scale(0.97);
+    }
+
+    /* Mobile App Stat Dashboard Widgets */
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 24px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(21, 163, 72, 0.16);
+    }
+
+    .stat-item {
+        background: rgba(12, 32, 22, 0.65);
+        border: 1px solid rgba(21, 163, 72, 0.18);
+        border-radius: 14px;
+        padding: 12px 14px;
+    }
+
+    .stat-item strong {
+        font-size: 1.45rem;
+    }
+
+    .stat-item span {
+        font-size: 0.74rem;
+    }
+
+    /* Hero Portrait - Framed Neatly without Horizontal Overflow */
+    .hero-visual-wrap {
+        max-width: 320px;
+        margin: 0 auto 16px;
+        order: -1;
+    }
+
+    .portrait-frame {
+        border-radius: 22px;
+        border: 1px solid rgba(21, 163, 72, 0.32);
+    }
+
+    .float-badge {
+        padding: 7px 11px;
+        gap: 7px;
+        border-radius: 12px;
+        background: rgba(9, 25, 17, 0.92);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .float-badge strong {
+        font-size: 0.75rem;
+    }
+
+    .float-badge span {
+        font-size: 0.65rem;
+    }
+
+    .top-badge {
+        top: 8px;
+        right: 6px;
+    }
+
+    .india-badge {
+        bottom: 58px;
+        right: 6px;
+    }
+
+    .bottom-badge {
+        bottom: 8px;
+        left: 6px;
+    }
+
+    /* Ticker on Mobile */
+    .marquee {
+        padding: 18px 0;
+    }
+
+    .track {
+        gap: 20px;
+    }
+
+    .mlogo {
+        height: 62px;
+        min-width: 140px;
+        border-radius: 12px;
+        padding: 6px 14px;
+    }
+
+    .mlogo img {
+        max-height: 44px;
+        max-width: 110px;
+    }
+
+    /* Native App Card Styling */
+    .tilt {
+        border-radius: 20px;
+        padding: 18px;
+        transform: none !important;
+    }
+
+    .aboutgrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .pimg.tall {
+        height: 300px;
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    .feature {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .feature .svc {
+        grid-template-columns: 1fr;
+    }
+
+    .logo.feature-logo {
+        height: 120px !important;
+        padding: 14px 20px !important;
+        border-radius: 16px !important;
+        margin-bottom: 16px;
+    }
+
+    .logo.feature-logo img {
+        max-height: 95px !important;
+    }
+
+    .leadership-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .leader-pill {
+        padding: 8px 12px;
+        border-radius: 10px;
+    }
+
+    .associations-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .logo.small {
+        height: 80px;
+        border-radius: 14px;
+        padding: 10px 16px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* App Screenshot Carousel (Touch Snap Swiper) */
+    .product {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 24px 0;
+    }
+
+    .shots {
+        gap: 12px;
+        padding: 12px 0 18px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .shots img {
+        height: 290px;
+        border-radius: 18px;
+        scroll-snap-align: center;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    .momentgrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .momentgrid .pimg {
+        height: 260px;
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    .cta {
+        padding: 32px 18px;
+        border-radius: 20px;
+    }
+
+    .cta h2 {
+        font-size: 1.7rem;
+    }
+
+    /* ==========================================================
+       MOBILE GLASS BOTTOM APP BAR / DOCK
+       ========================================================== */
+    .mobile-tab-bar {
+        display: flex;
+        position: fixed;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+        z-index: 999;
+        background: rgba(12, 32, 22, 0.88);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(21, 163, 72, 0.3);
+        border-radius: 24px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 18px rgba(21, 163, 72, 0.16);
+        padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .tab-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 10px;
+        text-decoration: none;
+        color: var(--muted);
+        border-radius: 14px;
+        transition: all 0.2s ease;
+        flex: 1;
+        max-width: 68px;
+        position: relative;
+    }
+
+    .tab-item:active {
+        transform: scale(0.9);
+    }
+
+    .tab-item.active {
+        color: #fff;
+    }
+
+    .tab-item.active::after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        width: 16px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--green);
+        box-shadow: 0 0 6px var(--green);
+    }
+
+    .tab-icon {
+        width: 20px;
+        height: 20px;
+        stroke-width: 2;
+        margin-bottom: 2px;
+        transition: stroke 0.2s;
+    }
+
+    .tab-item.active .tab-icon {
+        stroke: var(--green);
+    }
+
+    .tab-item span {
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        line-height: 1;
+    }
+
+    .tab-item.tab-book {
+        color: #fff;
+        background: rgba(21, 163, 72, 0.2);
+        border: 1px solid rgba(21, 163, 72, 0.35);
+        border-radius: 16px;
+    }
+
+    .tab-item.tab-book .tab-icon {
+        stroke: var(--green);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
