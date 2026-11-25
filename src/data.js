@@ -11,7 +11,7 @@ export const aboutExtra = `${aboutP2} ${aboutP3}`
 
 export const associatedPartners = [
   { name: "Abdul Rasheed", role: "Associated Partner", icon: "🤝" },
-  { name: "Muhammed Noufal", role: "Associated Partner", icon: "🤝" },
+  { name: "Noufal Muhammed", role: "Associated Partner", icon: "🤝" },
   { name: "Najad Abdul Salam", role: "Associated Partner", icon: "🤝" },
   { name: "Omar Salih", role: "Associated Partner", icon: "🤝" },
   { name: "Saidalavi", role: "Associated Partner", icon: "🤝" }
@@ -40,7 +40,7 @@ export const ozfero = {
   tagline: "My entrepreneurial venture, co-founded and managed with a shared vision of building innovative digital solutions and technology-driven businesses.",
   leadership: [
     { name: "Ashique P K", role: "Co-Founder & Managing Director", icon: "👨‍💼" },
-    { name: "abdul rasheed & Team", role: "Co-Founder", icon: "🤝" }
+    { name: "Abdul Rasheed & Team", role: "Co-Founder", icon: "🤝" }
   ],
   officialNote: "Ozfero Digital Solutions is our own business venture, with ownership and leadership as defined by the company’s official records.",
   logo: "/assets/logo-ozfero.png",
