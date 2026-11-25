@@ -76,7 +76,7 @@ export const associations = [
     num: "02",
     name: "Wavenpixel",
     place: "Dubai, UAE",
-    role: "Professional Associate",
+    role: "Professional Associate | Management Coordination",
     badge: "Professional Associate • Experiences",
     logo: "/assets/logo-wave.jpg",
     text: "Associated with Wavenpixel, a premium-focused events company specialising in events and experiences in Dubai.",
@@ -110,7 +110,32 @@ export const products = [
 ]
 
 export const moments = [
-  ["/assets/pod.jpg", "Ashique P K at a podcast microphone"],
-  ["/assets/fair1.jpg", "Ashique P K at an exhibition booth"],
-  ["/assets/fair2.jpg", "Ashique P K on the exhibition floor"],
+  {
+    src: "/assets/moment-team.jpg",
+    tag: "Team Ozfero",
+    title: "Dubai Run on Sheikh Zayed Road",
+    subtitle: "Leading the Ozfero Digital Solutions team across Dubai's iconic skyline",
+    alt: "Ashique P K and the Ozfero team in branded sports jerseys on Sheikh Zayed Road Dubai"
+  },
+  {
+    src: "/assets/pod.jpg",
+    tag: "Studio & Voice",
+    title: "Podcast & Entrepreneurship Dialogue",
+    subtitle: "Conversations on technology innovation, leadership, and global business growth",
+    alt: "Ashique P K at a studio podcast interview"
+  },
+  {
+    src: "/assets/fair1.jpg",
+    tag: "Global Expos",
+    title: "International Tech Exhibition",
+    subtitle: "Engaging with global partners, clients, and industry pioneers at trade fairs",
+    alt: "Ashique P K in business discussions at an international exhibition booth"
+  },
+  {
+    src: "/assets/moment-run.jpg",
+    tag: "Community",
+    title: "Dubai Fitness Challenge",
+    subtitle: "Representing Ozfero Digital Solutions with pride at Dubai's flagship fitness event",
+    alt: "Ashique P K in Ozfero Puma jersey giving thumbs-up with Dubai skyscrapers in the background"
+  }
 ]

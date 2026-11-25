@@ -654,8 +654,27 @@ function Moments() {
     <section id="moments">
       <div className="wrap">
         <Reveal as="h2">Moments</Reveal>
-        <Reveal><p className="muted lead">In the studio and on the exhibition floor.</p></Reveal>
-        <div className="momentgrid">{moments.map(([src, alt]) => <ParallaxImg key={src} src={src} alt={alt} />)}</div>
+        <Reveal>
+          <p className="muted lead">
+            Snapshots from studio conversations, global exhibitions, team culture, and community moments across Dubai.
+          </p>
+        </Reveal>
+        <div className="momentgrid">
+          {moments.map((m, idx) => (
+            <Reveal key={m.src} delay={idx * 0.1}>
+              <div className="moment-card">
+                <ParallaxImg src={m.src} alt={m.alt} />
+                <div className="moment-overlay">
+                  <span className="moment-badge">{m.tag}</span>
+                  <div className="moment-content">
+                    <h4>{m.title}</h4>
+                    <p>{m.subtitle}</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )
