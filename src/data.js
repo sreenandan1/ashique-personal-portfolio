@@ -25,7 +25,7 @@ export const stats = [
 ]
 
 export const logos = [
-  { name: "Ozfero Digital Solutions", src: "/assets/logo-ozfero.jpg" },
+  { name: "Ozfero Digital Solutions", src: "/assets/logo-ozfero.png" },
   { name: "WE4V Events", src: "/assets/logo-weav.jpg" },
   { name: "Wavenpixel", src: "/assets/logo-wave.jpg" },
   { name: "Kick Form", src: "/assets/logo-kick.jpg" },
@@ -43,7 +43,7 @@ export const ozfero = {
     { name: "Abdul Rasheed", role: "Co-Founder", icon: "🤝" }
   ],
   officialNote: "Ozfero Digital Solutions is our own business venture, with ownership and leadership as defined by the company’s official records.",
-  logo: "/assets/logo-ozfero.jpg",
+  logo: "/assets/logo-ozfero.png",
   services: [
     "Custom Software & Web Development",
     "Mobile Application Development",
